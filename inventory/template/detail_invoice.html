@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} List Details Invoices {% endblock title %}
+
+{% block body %}
+<h1 text="align-center">Detail Invoice</h1>
+<form method="POST">
+<table style="border: 1px solid darkred;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Amount</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for detail_invoice in details_invoice %}
+        <tr>
+            <td>{{detail_invoice.id}}</td>
+            <td>{{detail_invoice.amount}}</td>
+            <td><a href="{% url 'edit_Detail' detail_invoice.id %}">Edit</a>
+                <a href="{% url 'delete_Detail' detail_invoice.id %}">Delete</a>
+
+            </td>    
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+</table>
+<br>
+<br>
+<tr><a href="{% url 'create_Detail' %}">Add New Detail</a></tr>
+<br>
+<tr><a href="{% url 'index' %}">Return Index</a></tr>
+
+{% endblock body %}

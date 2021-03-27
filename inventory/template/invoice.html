@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %} List Invoice {% endblock title %}
+{% block body %}
+<h1 text="align-center">Show Invoice</h1>
+<form method="POST">
+<table style="border: 1px solid darkred;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Type Invoice</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>iva</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for invoice in invoices %}
+        <tr>
+            <td>{{invoice.id}}</td>
+            <td>{{invoice.type_invoice}}</td>
+            <td>{{invoice.date}}</td>
+            <td>{{invoice.description}}</td>
+            <td>{{invoice.cost}}</td>
+            <td>{{invoice.iva}}</td>
+            <td><a href="{% url 'edit_Invoice' invoice.id %}">Edit</a>
+                <a href="{% url 'delete_Invoice' invoice.id %}">Delete</a>
+            </td>    
+        </tr>
+        {% endfor %}
+    </tbody> 
+</table>
+<br>
+<br>
+<tr><a href="{% url 'create_Invoice' %}">Add New Invoice</a></tr>
+<br>
+<tr><a href="{% url 'index' %}">Return Index</a></tr>
+
+{% endblock body %}

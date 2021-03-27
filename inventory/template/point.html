@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} List Points {% endblock title %}
+
+{% block body %}
+<h1 text="align-center">Show Points</h1>
+<form method="POST">
+<table style="border: 1px solid darkred;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Box Budget</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for point in points %}
+        <tr>
+            <td>{{point.id}}</td>
+            <td>{{point.name}}</td>
+            <td>{{point.box_budget}}</td>
+            <td><a href="{% url 'edit_Point' point.id %}">Edit</a>
+                <a href="{% url 'delete_Point' point.id %}">Delete</a>
+            </td>    
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+</table>
+<br>
+<br>
+<tr><a href="{% url 'create_Point' %}">Add New Point</a></tr>
+<br>
+<tr><a href="{% url 'index' %}">Return Index</a></tr>
+
+{% endblock body %}

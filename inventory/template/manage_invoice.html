@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} Manage Distributors {% endblock title %}
+
+{% block body %}
+<h1 text="align-center">Manage Invoice</h1>
+<p>select type if it is output</p>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+{% endblock body %}

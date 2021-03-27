@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %} List Distributors {% endblock title %}
+
+{% block body %}
+<h1 text="align-center">Show Items</h1>
+<form method="POST">
+<table style="border: 1px solid darkred;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for item in items %}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.price}}</td>
+            <td><a href="{% url 'edit_Item' item.id %}">Edit</a>
+                <a href="{% url 'delete_Item' item.id %}">Delete</a>
+
+            </td>    
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+</table>
+<br>
+<br>
+<tr><a href="{% url 'create_Item' %}">Add New Item</a></tr>
+<br>
+<tr><a href="{% url 'index' %}">Return Index</a></tr>
+
+{% endblock body %}

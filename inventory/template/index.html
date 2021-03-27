@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Index {% endblock title %}
+
+{% block body %}
+<h1 text="align-center">Menu</h1>
+<form method="POST">
+<table style="border: 1px solid darkred;">
+        <tr>
+            <td><a href="{% url 'show_Distributor' %}">Distributors</a></td>
+            <td><a href="{% url 'show_Item' %}">Items</a></td>
+            <td><a href="{% url 'show_User' %}">Users</a></td>
+            <td><a href="{% url 'show_Invoice' %}">Invoices</a></td>
+            <td><a href="{% url 'show_Point' %}">Points</a></td>
+            <td><a href="{% url 'show_Detail' %}">Details</a></td>
+            <td></td>
+            <td></td>
+            </td>    
+        </tr>
+    </tbody>   
+</table>
+<br>
+<br>
+{% endblock body %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %} List Distributors {% endblock title %}
+
+{% block body %}
+<h1 text="align-center">Show Distributors</h1>
+<form method="POST">
+<table style="border: 1px solid darkred;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Adress</th>
+            <th>NIT</th>
+            <th>Description</th>
+            <th>Phone</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for distributor in distributors %}
+        <tr>
+            <td>{{distributor.name}}</td>
+            <td>{{distributor.address}}</td>
+            <td>{{distributor.nit}}</td>
+            <td>{{distributor.description}}</td>
+            <td>{{distributor.phone}}</td>
+            <td><a href="{% url 'edit_Distributor' distributor.id %}">Edit</a>
+                <a href="{% url 'delete_Distributor' distributor.id %}">Delete</a>
+
+            </td>    
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+</table>
+<br>
+<br>
+<tr><a href="{% url 'create_Distributor' %}">Add New Distributor</a></tr>
+<br>
+<tr><a href="{% url 'index' %}">Return Index</a></tr>
+
+{% endblock body %}
