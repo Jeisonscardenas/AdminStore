@@ -3,21 +3,42 @@
 
 {% block body %}
 <h1 text="align-center">Menu</h1>
-<form method="POST">
-<table style="border: 1px solid darkred;">
-        <tr>
-            <td><a href="{% url 'show_Distributor' %}">Distributors</a></td>
-            <td><a href="{% url 'show_Item' %}">Items</a></td>
-            <td><a href="{% url 'show_User' %}">Users</a></td>
-            <td><a href="{% url 'show_Invoice' %}">Invoices</a></td>
-            <td><a href="{% url 'show_Point' %}">Points</a></td>
-            <td><a href="{% url 'show_Detail' %}">Details</a></td>
-            <td></td>
-            <td></td>
-            </td>    
-        </tr>
-    </tbody>   
-</table>
+
+<div class="row">
+    <div class="col-md-2"> <a href="{% url 'show_Distributor' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Distributors</a>
+    <br>
+    <p>
+        Esta seccion se encargara de darle manejo sobre el area de distribuidores
+    </p>
+    </div>
+    <div class="col-md-2"> <a href="{% url 'show_Item' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Items</a>
+        <br>
+        <p>
+            Esta seccion se encargara de darle manejo sobre el area de Items
+        </p>
+    </div>
+    <div class="col-md-2"><a href="{% url 'show_User' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Users</a>
+        <br>
+        <p>
+            Esta seccion se encargara de darle manejo sobre el area de Users
+        </p> </div>
+    <div class="col-md-2"> <a href="{% url 'show_Invoice' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Invoices</a>
+        <br>
+        <p>
+            Esta seccion se encargara de darle manejo sobre el area de Invoices
+        </p></div>
+    <div class="col-md-2"> <a href="{% url 'show_Point' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Points</a>
+        <br>
+        <p>
+            Esta seccion se encargara de darle manejo sobre el area de Points
+        </p></div>
+    <div class="col-md-2"> <a href="{% url 'show_Detail' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Details</a>
+        <br>
+        <p>
+            Esta seccion se encargara de darle manejo sobre el area de Delatils
+        </p></div>
+</div>
 <br>
 <br>
+
 {% endblock body %}

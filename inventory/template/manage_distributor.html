@@ -3,9 +3,16 @@
 
 {% block body %}
 <h1 text="align-center">Manage Distributor</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
+<div class="col-md-12">
+    <div style="width: 50%;margin:auto">
+        <table class="table table-striped style="border: 1px solid rgb(8, 8, 8);>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="btn btn-primary" type="submit" value="Save">
+            </form>
+        </table>
+        <a href="{% url 'show_Distributor' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Return</a>
+    </div>
+</div>
 {% endblock body %}

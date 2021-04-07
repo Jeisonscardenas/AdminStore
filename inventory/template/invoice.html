@@ -1,40 +1,50 @@
 {% extends 'base.html' %}
 {% block title %} List Invoice {% endblock title %}
 {% block body %}
-<h1 text="align-center">Show Invoice</h1>
-<form method="POST">
-<table style="border: 1px solid darkred;">
-    <thead>
+
+<div class="col-md-12">
+    <h1 text="align-center">Show Invoice</h1>
+        <form method="POST">
+            <div style="width: 70%;margin:auto"> 
+        <table class="table table-striped style="border: 1px solid rgb(8, 8, 8);>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Type Invoice</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">iva</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for invoice in invoices %}
+                <tr>
+                    <td>{{invoice.id}}</td>
+                    <td>{{invoice.type_invoice}}</td>
+                    <td>{{invoice.date}}</td>
+                    <td>{{invoice.description}}</td>
+                    <td>{{invoice.cost}}</td>
+                    <td>{{invoice.iva}}</td>
+                    <td><a href="{% url 'edit_Invoice' invoice.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit</a>
+                        <a href="{% url 'delete_Invoice' invoice.id %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Delete</a>
+                    </td>    
+                </tr>
+                {% endfor %}
+            </tbody> 
+        </table>
+            </div>
+        </form>
+        <br>
+        <br>
         <tr>
-            <th>ID</th>
-            <th>Type Invoice</th>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Cost</th>
-            <th>iva</th>
-            <th>Options</th>
+            <a href="{% url 'index' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Return </a>
+            <a href="{% url 'create_Invoice' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add New </a>
         </tr>
-    </thead>
-    <tbody>
-        {% for invoice in invoices %}
-        <tr>
-            <td>{{invoice.id}}</td>
-            <td>{{invoice.type_invoice}}</td>
-            <td>{{invoice.date}}</td>
-            <td>{{invoice.description}}</td>
-            <td>{{invoice.cost}}</td>
-            <td>{{invoice.iva}}</td>
-            <td><a href="{% url 'edit_Invoice' invoice.id %}">Edit</a>
-                <a href="{% url 'delete_Invoice' invoice.id %}">Delete</a>
-            </td>    
-        </tr>
-        {% endfor %}
-    </tbody> 
-</table>
-<br>
-<br>
-<tr><a href="{% url 'create_Invoice' %}">Add New Invoice</a></tr>
-<br>
-<tr><a href="{% url 'index' %}">Return Index</a></tr>
+        
+        
+</div>
+
 
 {% endblock body %}

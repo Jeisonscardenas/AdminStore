@@ -2,35 +2,44 @@
 {% block title %} List Points {% endblock title %}
 
 {% block body %}
-<h1 text="align-center">Show Points</h1>
-<form method="POST">
-<table style="border: 1px solid darkred;">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Box Budget</th>
-            <th>Options</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for point in points %}
-        <tr>
-            <td>{{point.id}}</td>
-            <td>{{point.name}}</td>
-            <td>{{point.box_budget}}</td>
-            <td><a href="{% url 'edit_Point' point.id %}">Edit</a>
-                <a href="{% url 'delete_Point' point.id %}">Delete</a>
-            </td>    
-        </tr>
-        {% endfor %}
-    </tbody>
+
+<div class="col-md-12">
+    <h1 text="align-center">Show Points</h1>
+    <form method="POST">
+        <div style="width: 70%;margin:auto">
+            <table class="table table-striped style="border: 1px solid rgb(8, 8, 8);>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Box Budget</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for point in points %}
+                    <tr>
+                        <td>{{point.id}}</td>
+                        <td>{{point.name}}</td>
+                        <td>{{point.box_budget}}</td>
+                        <td><a href="{% url 'edit_Point' point.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit</a>
+                            <a href="{% url 'delete_Point' point.id %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Delete</a>
+                        </td>    
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+         </div>
+       </form>
+    <br>
+    <br>
+    <tr><a href="{% url 'index' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Return</a>
+        <a href="{% url 'create_Point' %}"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add New</a>
+        
+    </tr>
     
-</table>
-<br>
-<br>
-<tr><a href="{% url 'create_Point' %}">Add New Point</a></tr>
-<br>
-<tr><a href="{% url 'index' %}">Return Index</a></tr>
+    
+</div>
 
 {% endblock body %}
